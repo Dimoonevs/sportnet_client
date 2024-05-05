@@ -1,0 +1,24 @@
+.subs_group{
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4.5px;
+}
+.subs_group p{
+    margin: 0 8px;
+}
+
+.subscription_title_block_name_text{
+    padding: 15px;
+    background: #6687AD26;
+    border-radius: 4.5px;
+}
+.subscription_title_block_name_text p{
+    margin-bottom: 0;
+}
+.error_subs{
+    color: red;
+    margin-top: 10px;
+    font-size: 13px;
+}

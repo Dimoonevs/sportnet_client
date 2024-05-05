@@ -1,0 +1,16 @@
+<div class="header">
+    <div class="header_content">
+        <div class="header_content_logo">
+            <div class="header_content_logo_name"><a href="">SPORT<div class="header_content_logo_name_in header_content_logo_name_in_mr5px"> IN</div> NET<div class="header_content_logo_name_in">WORK</div></a></div>
+        </div>
+        <div class="header_content_navigation">
+            <div class="header_content_navigation_pages">
+
+            </div>
+            <div class="header_content_navigation_user">
+                <p *ngIf="!authenticated" class="header_content_navigation_user_text"><a href="/form/sign-in">Sign In</a></p>
+                <p *ngIf="authenticated" class="header_content_navigation_user_text"><a href="/user/info"><img src="assets/user.svg" class="img_user" />{{username}}</a></p>
+            </div>
+        </div>
+    </div>
+</div>

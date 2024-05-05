@@ -1,0 +1,137 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form_two_group">
+        <div class="form_two_group_container">
+            <div class="form_group">
+                <label for="name" class="form_group_label">Name subscription</label>
+                <input type="text" id="name" formControlName="name" name="name" required>
+            </div>
+        </div>  
+        <div class="form_two_group_container">
+            <div class="form_group">
+                <label for="description" class="form_group_label">Short description</label>
+                <input type="text" id="description" formControlName="description" name="description" required>
+            </div>
+        </div>
+    </div>
+    <div class="subscription_title_block_name">
+        <h3>Select the type of subscription</h3>
+    </div>
+    <div class="form_two_group">
+        <div class="form_two_group_container form_two_group_container_select">
+            <div class="form_group form_group_select">
+                <div class="select" [ngClass]="{ 'select--active': selectTypeIsOpen }">
+                    <div class="select_choice" (click)="selectTypeToggle()">
+                        <p>{{selectedTypeOptionValue.text}}</p> <img src="assets/select.svg" alt="">
+                    </div>
+                    <div class="select_options">
+                        <div class="select_options_option" *ngFor="let option of optionsType" (click)="selectTypeOption(option)">
+                            <p>{{option.text}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form_two_group_container" *ngIf="selectedTypeOptionValue.value == 0">
+            <div class="form_group">
+                <label for="customTimeLimit" class="form_group_label">Fixed number of trainings</label>
+                <input class="mb-0" type="text" id="customTimeLimit" formControlName="customTimeLimit" name="customTimeLimit" required min="1" max="365" placeholder="">
+            </div>
+        </div>
+        <div class="form_two_group_container form_two_group_container_select" *ngIf="selectedTypeOptionValue.value == 1">
+                <div class="form_group form_group_select">
+                    <div class="select" [ngClass]="{ 'select--active': selectPeriodIsOpen }">
+                        <div class="select_choice" (click)="selectPeriodToggle()">
+                            <p>{{selectedPeriodOptionValue.lable}}</p> <img src="assets/select.svg" alt="">
+                        </div>
+                        <div class="select_options">
+                            <div class="select_options_option" *ngFor="let option of optionsPerion" (click)="selectPeriodOption(option)">
+                                <p>{{option.lable}}</p>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="check_automatly" *ngIf="selectedTypeOptionValue.value == 0" (click)="isAutomatly = !isAutomatly">
+        <div class="check_automatly_block" [ngClass]="{ 'check_automatly_block--active': isAutomatly}">
+            <img src="assets/check_24px_white.svg" alt="">
+        </div>
+        <div class="check_automatly_text">Automatically remove training days on specific days and times. If you do not select this option, you can do this manually </div>
+    </div>
+    <div class="subscription_title_block_name" *ngIf="isAutomatly && selectedTypeOptionValue.value == 0">
+        <div class="subscription_title_block_name_text">
+            <p>Select the days of the training week and the time when the number of sessions should be removed from the athlete.</p>
+        </div>
+    </div>
+    <div class="form_two_group" *ngIf="isAutomatly && selectedTypeOptionValue.value == 0">
+        <div class="form_two_group_container form_two_group_container_check">
+            <div class="ckeck_days_of_week" (click)="toggleDayInDaysOfWeek('Monday')">
+                <div class="check_automatly_block" [ngClass]="{ 'check_automatly_block--active': hasDayOfWeek('Monday')}">
+                    <img src="assets/check_24px_white.svg" alt="">
+                </div>
+                <div class="check_automatly_text">Monday</div>
+            </div>
+            <div class="ckeck_days_of_week" (click)="toggleDayInDaysOfWeek('Tuesday')">
+                <div class="check_automatly_block" [ngClass]="{ 'check_automatly_block--active': hasDayOfWeek('Tuesday')}">
+                    <img src="assets/check_24px_white.svg" alt="">
+                </div>
+                <div class="check_automatly_text">Tuesday</div>
+            </div>
+            <div class="ckeck_days_of_week" (click)="toggleDayInDaysOfWeek('Wednesday')">
+                <div class="check_automatly_block" [ngClass]="{ 'check_automatly_block--active': hasDayOfWeek('Wednesday')}">
+                    <img src="assets/check_24px_white.svg" alt="">
+                </div>
+                <div class="check_automatly_text">Wednesday</div>
+            </div>
+            <div class="ckeck_days_of_week" (click)="toggleDayInDaysOfWeek('Thursday')">
+                <div class="check_automatly_block" [ngClass]="{ 'check_automatly_block--active': hasDayOfWeek('Thursday')}">
+                    <img src="assets/check_24px_white.svg" alt="">
+                </div>
+                <div class="check_automatly_text">Thursday</div>
+            </div>
+            <div class="ckeck_days_of_week" (click)="toggleDayInDaysOfWeek('Friday')">
+                <div class="check_automatly_block" [ngClass]="{ 'check_automatly_block--active': hasDayOfWeek('Friday')}">
+                    <img src="assets/check_24px_white.svg" alt="">
+                </div>
+                <div class="check_automatly_text">Friday</div>
+            </div>
+            <div class="ckeck_days_of_week" (click)="toggleDayInDaysOfWeek('Saturday')">
+                <div class="check_automatly_block" [ngClass]="{ 'check_automatly_block--active': hasDayOfWeek('Saturday')}">
+                    <img src="assets/check_24px_white.svg" alt="">
+                </div>
+                <div class="check_automatly_text">Saturday</div>
+            </div>
+            <div class="ckeck_days_of_week" (click)="toggleDayInDaysOfWeek('Sunday')">
+                <div class="check_automatly_block" [ngClass]="{ 'check_automatly_block--active': hasDayOfWeek('Sunday')}">
+                    <img src="assets/check_24px_white.svg" alt="">
+                </div>
+                <div class="check_automatly_text">Sunday</div>
+            </div>
+        </div>
+        <div class="form_two_group_container">
+            <div class="form_group">
+                <label for="time" class="form_group_label">Time when the number of sessions should be removed</label>
+                <input type="time" id="time"  formControlName="time" name="time" required placeholder="HH:MM">
+            </div>
+        </div>
+    </div>
+    <div class="form_two_group">
+        <div class="form_two_group_container">
+            <div class="form_group">
+                <label for="price" class="form_group_label">Price</label>
+                <input type="text" id="price" formControlName="price" name="price" required >
+            </div>
+        </div>
+        <div class="form_two_group_container">
+            <div class="form_group">
+                <label for="currency" class="form_group_label">Currency</label>
+                <input type="text" id="currency" formControlName="currency" name="currency" required >
+            </div>
+        </div>
+    </div>
+
+    <div class="form_content_button">
+        <button type="submit">Edit</button>
+    </div>
+
+</form> 

@@ -1,0 +1,21 @@
+<div class="user_routing_content">
+    <div class="user_routing_content_router">
+        <div class="user_routing_content_router_text">
+            <p><a href="" [routerLink]="['/user/info']"  routerLinkActive="user_routing_content_router_text--active"><img src="assets/user.svg" class="img_user" />My Profile</a></p>
+        </div>
+        <div class="user_routing_content_router_text">
+            <p><a href="" [routerLink]="['/user/sub']"  routerLinkActive="user_routing_content_router_text--active"><img src="assets/notebook_white.svg" class="img_user" />Subscriptions</a></p>
+        </div>
+        <div class="user_routing_content_router_text">
+            <p><a href="" [routerLink]="['/user/group']"  routerLinkActive="user_routing_content_router_text--active"><img src="assets/group_two.svg" class="img_user" />Groups</a></p>
+        </div>
+        <div class="form_content_button">
+            <button type="submit" (click)="logout()">Logout</button>
+        </div>
+    </div>
+    <div class="user_routing_content_right">
+        <router-outlet></router-outlet> 
+    </div>
+</div>
+
+

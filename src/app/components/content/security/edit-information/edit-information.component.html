@@ -1,0 +1,43 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form_two_group">
+        <div class="form_two_group_container">
+            <div class="form_group form_group--left">
+                <label for="firstName" class="form_group_label">First Name</label>
+                <input type="text" id="firstName" formControlName="firstName" name="firstName" required>
+            </div>
+            <div *ngIf="_firstName?.invalid && (_firstName?.dirty || _firstName?.touched)" class="alert alert-danger">
+              <div class="error_text" *ngIf="_firstName?.errors?.['required']">
+                First Name is required
+              </div>
+            </div>
+        </div>
+        <div class="form_two_group_container">
+            <div class="form_group">
+                <label for="lastName" class="form_group_label">Last Name</label>
+                <input type="text" id="lastName" formControlName="lastName" name="lastName" required>
+            </div>
+            <div *ngIf="_lastName?.invalid && (_lastName?.dirty || _lastName?.touched)" class="alert alert-danger">
+              <div class="error_text" *ngIf="_lastName?.errors?.['required']">
+                Last Name is required
+              </div>
+            </div>
+        </div>
+    </div>
+    <div class="form_group">
+      <label for="username" class="form_group_label">Username</label>
+      <input type="text" id="username" formControlName="username" name="username" required>
+    </div>
+    <div *ngIf="_username?.invalid && (_username?.dirty || _username?.touched)" class="alert alert-danger">
+      <div class="error_text" *ngIf="_username?.errors?.['required']">
+        Username is required
+      </div>
+    </div>
+    <div class="form_group">
+        <label for="dateOfBirth" class="form_group_label">Date of birth</label>
+        <input type="text" id="dateOfBirth" formControlName="dateOfBirth" name="dateOfBirth" required>
+    </div>
+   
+    <div class="form_content_button">
+      <button type="submit">Edit</button>
+    </div>
+</form>

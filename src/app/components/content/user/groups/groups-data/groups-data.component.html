@@ -1,0 +1,132 @@
+<div class="groups">
+    <div class="groups_container">
+        <div class="groups_container_card" *ngFor="let group of groups; let i = index" (click)="getAthlets(group, i)" [ngClass]="{'groups_container_card--active': selectedIndex === i}">
+            <div class="groups_container_card_name">
+                <div class="groups_container_card_name_text">
+                    Group:
+                </div> 
+                <div class="groups_container_card_name_value">
+                    {{group.name}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="form_content_button sub_nav">
+    <a href="" [routerLink]="['/user/group/edit']" routerLinkActive="sub_routing_create--active">Edit selected group</a>
+    <p class="sub_routing_create" (click)="toggleForm()">Create athlet in group</p>
+</div>
+<div class="form_create">
+    <app-athlet-create *ngIf="openForm"></app-athlet-create>
+    <app-edit-athlet *ngIf="openEditForm"></app-edit-athlet>
+</div>
+<div class="button_event_for_athletes">
+    <button  (click)="addDaysInAthleteOpen()">Add days</button>
+    <button  (click)="continuationDaysInAthleteOpen()">Continuation Date</button>
+    <button class="delete_button" (click)="deleteAthletsOpenAccespts()">Delete</button>
+</div>
+
+<div class="content">
+    <div class="athlets"  *ngFor="let athlete of athlets | keyvalue" [ngClass]="{'athlets--expired':isExpired(athlete.value.status)}">
+        <div class="athlets_select">
+            <div class="athlets_select_container">
+                <div class="athlets_select_container_check" [ngClass]="{'athlets_select_container_check--active': hasId(athlete.value.id)}" (click)="selectAthlet(athlete.value.id)"></div>
+            </div>
+        </div>
+        <div class="athlets_card">
+            <div class="athlets_card_name">
+                <div class="athlets_card_name_text ">
+                    <div class="athlets_card_name_text_name">
+                        First name:
+                    </div> 
+                    <div class="athlets_card_name_text_value">
+                        {{athlete.value.firstName}}
+                    </div>
+                </div>
+                <div class="athlets_card_name_text">
+                    <div class="athlets_card_name_text_name">
+                        Last name:
+                    </div> 
+                    <div class="athlets_card_name_text_value">
+                        {{athlete.value.lastName}}
+                    </div>
+                </div>
+            </div>
+            <div class="athlets_card_name">
+                <div class="athlets_card_name_text">
+                    <div class="athlets_card_name_text_name">
+                        days left:
+                    </div>
+                    <div class="athlets_card_name_text_value">
+                        {{athlete.value.daysLeft}}
+                    </div>
+                </div>
+                <div class="athlets_card_name_text">
+                    <div class="athlets_card_name_text_name">
+                        Date last:
+                    </div>
+                    <div class="athlets_card_name_text_value">
+                        <p *ngIf="athlete.value.dateLast; else notSpecified">{{athlete.value.dateLast}}</p><ng-template #notSpecified><p class="not_specified">None</p></ng-template>
+                    </div>
+                </div>
+                <div class="athlets_card_name_text">
+                    <div class="athlets_card_name_text_name">
+                        Status:
+                    </div>
+                    <div class="athlets_card_name_text_value">
+                       {{athlete.value.status}}
+                    </div>
+                </div>
+            </div>
+           <div class="athlets_card_buttons">
+            <button class="edit_button" (click)="editAthlet(athlete.value)">Edit</button>
+           </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="popup" [ngClass]="{'popup--active': popupDelete}">
+    <div class="popup_container">
+        <div class="exit_popup">
+            <img src="assets/exit.svg" alt="" (click)="closePopup()">
+        </div>
+        <div class="popup_container_text">
+            <p>Are you sure you want to delete selected athletes?</p>
+        </div>
+
+        <div class="popup_container_button">
+            <button class="delete_button" (click)="deleteAthlets()">Delete</button>
+        </div>
+    </div>
+</div>
+
+<div class="popup" [ngClass]="{'popup--active': popupAddDays}">
+    <div class="popup_container">
+        <div class="exit_popup">
+            <img src="assets/exit.svg" alt="" (click)="closePopup()">
+        </div>
+        <div class="popup_container_text">
+            <p>Enter the number of days to be added to the selected athletes training days.</p>
+        </div>
+        <div class="popup_container_input">
+            <input type="number" [(ngModel)]="days">
+            <button class="add_button" (click)="addDaysInAthlets()">Add</button>
+        </div>
+    </div>
+</div>
+
+<div class="popup" [ngClass]="{'popup--active': popupContinuationDays}">
+    <div class="popup_container">
+        <div class="exit_popup">
+            <img src="assets/exit.svg" alt="" (click)="closePopup()">
+        </div>
+        <div class="popup_container_text">
+            <p>Enter the number of days to be continuation to the selected athletes training date last.</p>
+        </div>
+        <div class="popup_container_input">
+            <input type="number" [(ngModel)]="days">
+            <button class="add_button" (click)="continuationDaysInAthlets()">ontinuation</button>
+        </div>
+    </div>
+</div>

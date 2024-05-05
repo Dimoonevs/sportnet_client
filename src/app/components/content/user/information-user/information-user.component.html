@@ -1,0 +1,53 @@
+<h1>My Profile</h1>
+<div class="information">
+    <div class="information_details">
+        <div class="information_details_title">
+            <h3>My contact details</h3>
+        </div>
+        <div class="information_details_content">
+            <div class="information_details_content_name information_details_content_all">
+                <p>First name:</p>
+                <p>Last name:</p>
+                <p>Username:</p>
+                <p>Email:</p>
+                <p>Date of Birth:</p>
+            </div>
+            <div class="information_details_content_data information_details_content_all">
+                <div><p *ngIf="user.data.firstName; else notSpecified">{{user.data.firstName}}</p><ng-template #notSpecified><p class="not_specified">Not specified</p></ng-template></div>
+                <div><p *ngIf="user.data.lastName; else notSpecified">{{user.data.lastName}}</p><ng-template #notSpecified><p class="not_specified">Not specified</p></ng-template></div>
+                <div><p *ngIf="user.data.username; else notSpecified">{{user.data.username}}</p><ng-template #notSpecified><p class="not_specified">Not specified</p></ng-template></div>
+                <div>
+                    <p *ngIf="!isEditing; else editingTemplate">{{user.data.email}} 
+                            <a class="change_email" (click)="changeEmail()"><img src="assets/edit.svg" alt="" class="img_edit">change email</a>
+                    </p>
+                    <ng-template #editingTemplate>
+                        <div class="ng-template">
+                            <input [(ngModel)]="newEmail" type="email" placeholder="Enter new email">
+                            <button (click)="saveEmail()">Save</button>
+                        </div>
+                    </ng-template>
+                </div>
+                <div><p *ngIf="user.data.dateOfBirth; else notSpecified">{{user.data.dateOfBirth}}</p><ng-template #notSpecified><p class="not_specified">Not specified</p></ng-template></div>
+            </div>
+            <div class="user_routing_content_router_text">
+                <p (click)="editProfile()"><img src="assets/edit.svg" class="img_user" />Edit Profile</p>
+            </div>
+        </div>
+    </div>
+    <div class="information_reset_password">
+        <div class="information_reset_password_title">
+            <h3>Password</h3>
+        </div>
+        <div class="information_reset_password_content">
+            <button type="submit" (click)="resetPassword()">Reset password</button>
+        </div>
+    </div>
+    <div class="information_payrment">
+        <div class="information_payrment_title">
+            <h3>Payment</h3>
+        </div>
+        <div class="information_payrment_content">
+            <p>Not specified</p>
+        </div>
+    </div>
+</div>

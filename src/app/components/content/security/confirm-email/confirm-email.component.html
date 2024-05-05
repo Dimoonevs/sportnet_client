@@ -1,0 +1,17 @@
+<div  class="form_content ">
+    <div class="form_content_title">
+        Confirm Email
+    </div>
+    <div class="form_content_text">
+        <!-- We send code to your email -->
+    </div>
+    <form (ngSubmit)="onSubmit(myForm.value)" #myForm="ngForm" class="form_content_form">
+        <div class="form_group">
+          <label for="code" class="form_group_label">Code</label>
+          <input type="text" id="code" ngModel name="code" required>
+        </div>
+        <div class="form_content_button">
+            <button type="submit">Confirm</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,40 @@
+.subscription_container{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 0 -5px;
+}
+.subscription_container_card{
+    /* background: #2E3134; */
+    background: rgba(255, 255, 255, 0.1);
+    padding: 14px;
+    margin: 5px;
+    border-radius: 4.5px;
+    cursor: pointer;
+    transition: .5s;
+    width: calc(100% / 2 - 10px);
+}
+.subscription_container_card:hover{
+    transform: scale(1.02);
+}
+.subscription_container_card_data_name{
+    display: flex;
+    margin-bottom: 10px;
+}
+.subscription_container_card_data_name_text{
+    margin-right: 10px;
+    color: rgba(255, 255, 255, 0.2);
+}
+.subscription_container_card--active{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+.subscription_container_card--active{
+    pointer-events: none;
+}
+.subscription_container_card_data_name_value{
+    margin-right: 5px;
+}

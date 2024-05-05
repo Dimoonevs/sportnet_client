@@ -1,0 +1,171 @@
+.groups{
+    margin-bottom: 8px;
+}
+.content{
+    margin: 0 -5px;
+}
+.groups_container{
+    display: flex;
+    margin: 0 -15px;
+    overflow-x: auto !important;
+    white-space: nowrap;
+}
+.groups_container_card_name{
+    display: flex;
+}
+.groups_container_card{
+    padding: 15px;
+    margin: 5px 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4.5px;
+    cursor: pointer;
+}
+.groups_container_card_name_text{
+    margin-right: 10px;
+}
+.groups_container_card--active{
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.form_content_button{
+    justify-content: start;
+    margin: 0 -15px;
+
+}
+.form_content_button a{
+    margin: 0 15px;
+}
+
+.sub_routing_create--active{
+    color: #586b83;
+}
+.sub_nav{
+    border-bottom:1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 10px;
+    margin-bottom: 35px;
+}
+.sub_nav a{
+    cursor: pointer;
+}
+.container{
+    max-width: 100%;
+}
+.athlets{
+    display: flex;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 14px;
+    margin: 5px;
+    border-radius: 4.5px;
+    transition: .5s;
+    justify-content: space-between;
+    align-items: center;
+}
+.athlets--expired{
+    background: rgba(236, 33, 33, 0.042);
+}
+
+.athlets_card{
+    display: flex;
+    transition: .5s;
+    justify-content: space-between;
+    width: 100%;
+}
+.athlets_card_name_text{
+    display: flex;
+    width: 180px;
+}
+.not_specified{
+    color: #ffffff90;
+}
+.athlets_card_name_text_name{
+    margin-right: 15px;
+}
+.athlets_select_container{
+    width: 20px ;
+    height: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4.5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.athlets_select{
+    margin-right: 15px;
+}
+p {
+    margin-bottom: 0;
+}
+.athlets_select_container_check{
+    width: 100%;
+    height: 100%;
+    transition: .5s;
+}
+.athlets_select_container_check--active{
+    background-color: rgba(255, 255, 255, 0.2);
+}
+button{
+     margin: 0;
+}
+.athlets_select_container{
+    overflow: hidden;
+}
+.athlets_card_buttons{
+    display: flex;
+    align-items: center;
+}
+.sub_routing_create{
+    cursor: pointer;
+}
+.button_event_for_athletes{
+    display: flex;
+    margin: 0 -15px;
+    justify-content: flex-end;
+}
+.button_event_for_athletes button{
+    max-width: 188px;
+    margin: 0 15px;
+}
+.popup_container_button{
+    display: flex;
+    justify-content: flex-end;
+}
+.popup_container_button button{
+    max-width: 150px;
+}
+.popup{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+.popup_container{
+    width: 500px;
+    background: #586b83;
+    padding: 20px;
+    border-radius: 4.5px;
+    position: relative;
+}
+.exit_popup{
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    cursor: pointer;
+}
+.exit_popup img{
+    width: 10px;
+    height: 10px;
+}
+.popup_container_text{
+    margin-bottom: 20px;
+}
+.popup--active{
+    display: flex;
+}

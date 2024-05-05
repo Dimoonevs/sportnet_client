@@ -1,0 +1,68 @@
+.information_details{
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 35px;
+    flex-basis:auto;
+    margin-bottom: 35px;
+}
+.information_reset_password{
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 35px;
+}
+.information_details_title{
+    margin-bottom: 35px;
+}
+.information{
+    width: 100%;
+}
+.information_details_content_all{
+    margin: 14px 0;
+}
+.information_details_content{
+    display: flex;
+    justify-content: space-around;
+}
+.information_details_content_name{
+    margin-right: 45px;
+}
+.information_reset_password_content{
+    max-width: 200px;
+}
+.information_details_content_name p{
+    color: #ffffff90;
+}
+.not_specified{
+    color: #ffffff90;
+}
+.img_edit{
+    margin-left: 15px;
+    margin-right: 4px;
+}
+h1{
+    margin-bottom: 15px;
+}
+.change_email{
+    cursor: pointer;
+}
+.ng-template{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.ng-template input{
+    margin: 0;
+    margin-right: 15px;
+    max-height: 33px;
+}
+.ng-template button{
+    margin: 0;
+    max-height: 33px;
+    padding: 10px;
+    padding: 5px 10px;
+}
+.user_routing_content_router_text p {
+    cursor: pointer;
+}

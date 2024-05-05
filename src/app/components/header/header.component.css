@@ -1,0 +1,43 @@
+.header {
+    background: #2E3134;
+    padding: 15px 25px;
+}
+.header_content{
+    display: flex;
+    justify-content: space-between;
+
+}
+.header_content_navigation_user{
+    display: flex;
+
+}
+.header_content_navigation_user_text{
+    margin: 0 15px;
+    transition: .5s;
+}
+.header_content_navigation_user_text a{
+    display: flex;
+    align-items: center;
+}
+.header_content_logo_name {
+    font-size: 29;
+    font-weight: 700;
+    font-style: italic;
+    color: #ECECED;
+}
+.header_content_logo_name a{
+    display: flex;
+    transition: .5s;
+}
+.header_content_logo_name_in{
+    max-width: 0;
+    opacity: 0;
+    transition: .5s;
+}
+.header_content_logo_name:hover .header_content_logo_name_in_mr5px{
+    margin: 0  5px;
+}
+.header_content_logo_name:hover .header_content_logo_name_in{
+    max-width: 100%;
+    opacity: 1;
+}

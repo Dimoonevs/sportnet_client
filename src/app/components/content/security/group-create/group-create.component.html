@@ -1,0 +1,29 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+   
+    <div class="form_group">
+        <label for="email" class="form_group_label">Name group</label>
+        <input type="text" id="email" formControlName="name" name="name" required>
+    </div>
+    <div class="subscription_title_block_name">
+        <div class="subscription_title_block_name_text">
+            <p>Here, you can choose the kind of subscription that will be applied automatically to every athlete you enroll. As an alternative, you can decide not to choose and give each athlete a manual subscription assignment.</p>
+        </div>
+    </div>
+    <div class="form_group">
+        <div class="form_group form_group_select">
+            <div class="select" [ngClass]="{ 'select--active': selectSubscriptionIsOpen }" >
+                <div class="select_choice" (click)="selectSubscriptionToggle()">
+                    <p>{{selectedSubscscription.name}}</p> <img src="assets/select.svg" alt="">
+                </div>
+                <div class="select_options" >
+                    <div class="select_options_option" *ngFor="let subscription of subscriptions" (click)="selectSubscriptionOption(subscription)">
+                        <p>{{subscription.name}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form_content_button">
+      <button type="submit">Sign up</button>
+    </div>
+</form>

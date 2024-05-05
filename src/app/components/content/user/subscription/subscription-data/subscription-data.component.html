@@ -1,0 +1,75 @@
+<div class="subscription">
+    <div class="subscription_title">
+        <h3>Subscriptions</h3>
+    </div>
+    <div class="subscription_container">
+            <div class="subscription_container_card" *ngFor="let subscription of subcscriptions" (click)="editSubscription(subscription)" >
+                <div class="subscription_container_card_data">
+                    <div class="subscription_container_card_data_name">
+                        <div class="subscription_container_card_data_name_text">
+                            name:
+                        </div> 
+                        <div class="subscription_container_card_data_name_value">
+                            {{subscription.name}}
+                        </div>
+                    </div>
+                    <div class="subscription_container_card_data_name">
+                        <div class="subscription_container_card_data_name_text">
+                            discription:
+                        </div> 
+                        <div class="subscription_container_card_data_name_value">
+                            {{subscription.description}}
+                        </div>
+                    </div>
+                    <div class="subscription_container_card_data_name">
+                        <div class="subscription_container_card_data_name_text">
+                            automatically:
+                        </div> 
+                        <div class="subscription_container_card_data_name_value">
+                            {{subscription.automaticallyManagement ? 'Yes' : 'No'}}
+                        </div>
+                    </div>
+                    <div class="subscription_container_card_data_name" *ngIf="subscription.automaticallyManagement">
+                        <div class="subscription_container_card_data_name_text">
+                            days of week:
+                        </div> 
+                        <div class="subscription_container_card_data_name_value" *ngFor="let day of subscription.daysOfWeek; let i = index">
+                            {{subscription.daysOfWeek[i]}}
+                        </div>
+                    </div>
+                    <div class="subscription_container_card_data_name">
+                        <div class="subscription_container_card_data_name_text">
+                            price:
+                        </div> 
+                        <div class="subscription_container_card_data_name_value">
+                            {{subscription.price}} {{subscription.currency}}
+                        </div>
+                    </div>
+                    <div class="subscription_container_card_data_name" *ngIf="subscription.customTimeLimited > 0">
+                        <div class="subscription_container_card_data_name_text">
+                            Count training:
+                        </div> 
+                        <div class="subscription_container_card_data_name_value">
+                            {{subscription.customTimeLimited}}
+                        </div>
+                    </div>
+                    <div class="subscription_container_card_data_name"  *ngIf="subscription.timeLimited !='-1'">
+                        <div class="subscription_container_card_data_name_text">
+                            Period:
+                        </div> 
+                        <div class="subscription_container_card_data_name_value">
+                            {{subscription.timeLimited}} 
+                        </div>
+                    </div>
+                    <div class="subscription_container_card_data_name"  *ngIf="subscription.automaticallyManagement">
+                        <div class="subscription_container_card_data_name_text">
+                            End time of training:
+                        </div> 
+                        <div class="subscription_container_card_data_name_value">
+                            {{subscription.time[0]}}:{{subscription.time[1]}} 
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
